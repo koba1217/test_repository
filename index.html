@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>紙芝居</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0079bf;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #slideshow {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 60vh;
+            border: 4px solid #003366;
+            border-radius: 8px;
+        }
+
+        p {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #003366;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>紙芝居</h1>
+    <div id="slideshow">
+        <div class="slide">
+            <img src="C:\Users\t7705601\Pictures\Saved Pictures\dog_toypoodle_miscolor.png" alt="犬の写真">
+            <p>犬</p>
+        </div>
+        <div class="slide">
+            <img src="C:\Users\t7705601\Pictures\Saved Pictures\cat_syamu_siamese.png" alt="猫の写真">
+            <p>猫</p>
+        </div>
+        <div class="slide">
+            <img src="C:\Users\t7705601\Pictures\Saved Pictures\bird_kojukei.png" alt="鳥の写真">
+            <p>鳥</p>
+        </div>
+    </div>
+    
+    <button onclick="changeSlide(1)">次へ</button>
+    <button onclick="changeSlide(-1)">前へ</button>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function changeSlide(n) {
+            slides[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide + n + slides.length) % slides.length;
+            slides[currentSlide].style.display = 'block';
+        }
+        
+        changeSlide(0);
+    </script>
+</body>
+</html>
